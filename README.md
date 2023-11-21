@@ -38,15 +38,6 @@ WebFileManager is a PHP-based web application for managing files. It's built usi
 - Access the web interface at `http://localhost:8000`.
 - Log in using your credentials to manage files.
 
-## Testing
-- Run tests using:
-  ```bash
-  php bin/phpunit
-  ```
-
-## Documentation
-- Further documentation is available in the `docs/` directory.
-
 ## Contributing
 Contributions are welcome. Please follow the standard GitHub pull request process.
 
