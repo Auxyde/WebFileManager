@@ -1,48 +1,79 @@
-# Symfony Docker
+# WebFileManager
 
-A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework,
-with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) inside!
-
-![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
-
-## Getting Started
-
-1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
-2. Run `docker compose build --no-cache` to build fresh images
-3. Run `docker compose up --pull -d --wait` to start the project
-4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
-5. Run `docker compose down --remove-orphans` to stop the Docker containers.
+## Overview
+WebFileManager is a PHP-based web application for managing files. It's built using Symfony and Docker, providing a robust and scalable solution for file management tasks.
 
 ## Features
+- **File Management**: Upload, download, delete, and organize files.
+- **User Authentication**: Secure access with user accounts.
+- **Docker Integration**: Easy deployment and scalability.
+- **Symfony Framework**: Leveraging Symfony for a structured and efficient codebase.
 
-* Production, development and CI ready
-* Just 1 service by default
-* Blazing-fast performance thanks to [the worker mode of FrankenPHP](https://github.com/dunglas/frankenphp/blob/main/docs/worker.md) (automatically enabled in prod mode)
-* [Installation of extra Docker Compose services](docs/extra-services.md) with Symfony Flex
-* Automatic HTTPS (in dev and prod)
-* HTTP/3 and [Early Hints](https://symfony.com/blog/new-in-symfony-6-3-early-hints) support
-* Real-time messaging thanks to a built-in [Mercure hub](https://symfony.com/doc/current/mercure.html)
-* [Vulcain](https://vulcain.rocks) support
-* Native [XDebug](docs/xdebug.md) integration
-* Super-readable configuration
+## Prerequisites
+- Docker
+- Docker Compose
+- PHP 8.0 or higher
+- Composer
 
-**Enjoy!**
+## Installation
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Auxyde/WebFileManager.git
+   cd WebFileManager
+   ```
+2. **Build and Run with Docker**:
+   ```bash
+   docker-compose up --build
+   ```
+3. **Install Dependencies**:
+   ```bash
+   composer install
+   ```
 
-## Docs
+## Configuration
+- **Doctrine Configuration**: Adjust `config/packages/doctrine.yaml` for database settings.
+- **Security**: Configure `config/packages/security.yaml` for security settings.
 
-1. [Build options](docs/build.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Debugging with Xdebug](docs/xdebug.md)
-6. [TLS Certificates](docs/tls.md)
-7. [Using a Makefile](docs/makefile.md)
-8. [Troubleshooting](docs/troubleshooting.md)
+## Usage
+- Access the web interface at `http://localhost:8000`.
+- Log in using your credentials to manage files.
+
+## Testing
+- Run tests using:
+  ```bash
+  php bin/phpunit
+  ```
+
+## Documentation
+- Further documentation is available in the `docs/` directory.
+
+## Contributing
+Contributions are welcome. Please follow the standard GitHub pull request process.
 
 ## License
+This project is licensed under the MIT License.
 
-Symfony Docker is available under the MIT License.
+## Acknowledgements
+- Symfony Community
+- Docker Team
 
-## Credits
+## Alignment with RNCP Competences of BUT
 
-Created by [Kévin Dunglas](https://dunglas.dev), co-maintained by [Maxime Helias](https://twitter.com/maxhelias) and sponsored by [Les-Tilleuls.coop](https://les-tilleuls.coop).
+WebFileManager exemplifies several competences from the RNCP for the "Développeur Web et Web Mobile" program:
+
+- **Conception and Development of Web Applications**: 
+  - This project is a fully functional web application, showcasing front-end and back-end development skills. It demonstrates the ability to create user interfaces and manage server-side logic, aligning with the core competencies of web application development.
+
+- **Database Management**: 
+  - The application uses a Postgres database to manage user data and file metadata. This reflects competence in database design, implementation, and management, crucial for modern web development.
+
+- **Implementation of Appropriate Security Measures**: 
+  - Security is a key aspect of WebFileManager, especially in handling file uploads and user authentication. Implementing security measures to protect user data and manage file access (private or public) aligns with the program's focus on web application security.
+
+- **Adaptation to New Technologies and Methodologies**: 
+  - The project demonstrates adaptability and proficiency in using contemporary web technologies and methodologies, such as Docker for deployment and Symfony framework for development.
+
+- **File Management and Sharing Features**:
+  - Users can upload files (up to 100MB) and choose to keep them private or share them with others. This feature demonstrates an understanding of file handling and user-centric design in web applications.
+
+This project serves as a practical showcase of the skills and knowledge acquired in the BUT program, particularly in web development and database management.
